@@ -1,0 +1,258 @@
+/* --------- List ----------  
+1. cc - chat-container  
+2. f-item - functionallity item
+*/
+
+
+/* Globally CSS Apply Section Start  */
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background: black;
+}
+
+p {
+    margin: 0;
+}
+
+/* Globally CSS Apply Section End  */
+
+
+
+/* Container Section Start  */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Container Section End  */
+
+
+
+/*-----------------Sidebar Section Start---------------  -*/
+.sidebar {
+    flex-basis: 20%;
+    background: #FFFFF2;
+    border-radius: 30px;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* Heading Section Starts  */
+.heading {
+    display: flex;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    align-items: center;
+    gap: 12px;
+    align-items: flex-start;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.companyName {
+    color: #191D99;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.companyId {
+    color: rgba(25, 29, 153, 0.71);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Heading Section End  */
+
+/* New Chat Section Start  */
+.newChat {
+    display: flex;
+    width: 250px;
+    padding: 12px 16px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    background: linear-gradient(92deg, rgba(204, 0, 255, 0.32) -16.64%, rgba(154, 1, 10, 0.87) 117.28%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    margin-left: 15px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.newChat img {
+    width: 28px;
+    height: 25px;
+}
+
+.newChat p {
+    color: #E5E5E5;
+    font-family: Helvetica Neue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+/* New Chat Section End  */
+
+
+/* ButtonSection Area Start  */
+.button-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    text-align: center;
+
+}
+
+.button-section img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #FFE1EC;
+    cursor: pointer;
+    margin: 11px 28px 21px 0;
+}
+
+.btn:hover {
+    scale: 1.1;
+    transition: 0.5s ease-in;
+}
+
+/* ButtonSection Area End  */
+
+
+/* ---------------Sidebar Section End-----------------  */
+
+
+
+
+/* ----------------Chat Container Section Start-------------  */
+.chat-container {
+    flex-basis: 80%;
+    background: whitesmoke;
+    border-radius: 30px;
+}
+
+.cc-Heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cc-Heading img {
+    margin: 20px;
+}
+
+
+.cc-text {
+    display: flex;
+    align-items: center;
+}
+
+
+.cc-text p {
+    color: #000;
+    font-family: Helvetica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: 0.96px;
+}
+
+.cc-text div {
+    color: #E5E5E5;
+    font-family: Helvetica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.96px;
+    margin-left: 5px;
+
+    background-color: #191D99;
+    padding: 10px;
+}
+
+.functionallity {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.f-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-basis: 18%;
+    margin: 0 15px;
+}
+
+.f-item .title {
+    color: #191D88;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 10px;
+}
+
+.f-item .description {
+    color: #191D88;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+    margin-top: 10px;
+}
+
+.textarea-section {
+    position: fixed;
+    bottom: 50px;
+}
+
+.textbox {
+    width: 60vw;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 16px;
+    color: rgba(0, 0, 0, 0.51);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin: 0 10vw;
+}
+
+/* Style for the icon button */
+.icon-button {
+    position: absolute;
+    top: 16%;
+    right: 13%;
+    padding: 8px;
+    border-radius: 10px;
+    background: #191D99;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+/* ----------------Chat Container Section End-------------  */
