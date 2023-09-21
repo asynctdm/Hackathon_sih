@@ -229,6 +229,23 @@ p {
     bottom: 50px;
 }
 
+/* ------------- chat section starts ------------ */
+
+.chat {
+    background: rgb(71, 68, 68);
+    padding: 10px;
+    color: white;
+}
+
+.user-chat {
+    margin-bottom: 10px;
+}
+
+.machine-chat {
+}
+
+/* --------------- chat section ends ------------- */
+
 .textbox {
     width: 60vw;
     border: 1px solid #ccc;
