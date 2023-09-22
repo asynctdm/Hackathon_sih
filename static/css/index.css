@@ -8,13 +8,34 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    background: black;
+    background: #444654;
 }
 
 p {
     margin: 0;
 }
 
+/* For webkit-based browsers like Chrome and Safari */
+::-webkit-scrollbar {
+    width: 10px; /* Adjust this value to change the scrollbar width */
+  }
+  
+  /* Track (the area on which the scrollbar is located) */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Change the background color if desired */
+  }
+  
+  /* Handle (the draggable part of the scrollbar) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Change the color of the scrollbar handle */
+    border-radius: 5px; /* Add some rounded corners to the scrollbar handle */
+  }
+  
+  /* On hover, make the scrollbar handle darker */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  
 /* Globally CSS Apply Section End  */
 
 
@@ -22,7 +43,7 @@ p {
 /* Container Section Start  */
 .container {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 /* Container Section End  */
@@ -31,13 +52,15 @@ p {
 
 /*-----------------Sidebar Section Start---------------  -*/
 .sidebar {
+
     flex-basis: 20%;
     background: #FFFFF2;
-    border-radius: 30px;
+    border-radius: 0 30px 30px 0;
     margin-right: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 100vh;
 }
 
 /* Heading Section Starts  */
@@ -147,12 +170,16 @@ p {
     flex-basis: 80%;
     background: whitesmoke;
     border-radius: 30px;
+    background: #444654;
+    height: 85vh;
+    overflow-y: auto;
 }
 
 .cc-Heading {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-bottom: 3px solid grey;
 }
 
 .cc-Heading img {
@@ -204,7 +231,7 @@ p {
 }
 
 .f-item .title {
-    color: #191D88;
+    color: white;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -214,7 +241,7 @@ p {
 }
 
 .f-item .description {
-    color: #191D88;
+    color: white;
     text-align: center;
     font-family: Inter;
     font-size: 14px;
@@ -232,16 +259,24 @@ p {
 /* ------------- chat section starts ------------ */
 
 .chat {
-    background: rgb(71, 68, 68);
-    padding: 10px;
+
     color: white;
+
+    font-family: Inter;
+    margin: 30px;
 }
 
 .user-chat {
-    margin-bottom: 10px;
+    background: #343541;
+    font-size: 18px;
+    padding: 20px;
+    text-align: justify;
 }
 
 .machine-chat {
+    padding: 20px;
+    background-color: #444654;
+    font-size: 18px;
 }
 
 /* --------------- chat section ends ------------- */

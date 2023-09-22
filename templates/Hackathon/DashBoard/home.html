@@ -21,10 +21,10 @@
           </svg>
         </div>
 
-        <div class="text" >
+        <div class="text">
           <p class="companyName"> {{request.user.first_name}} - {{request.user.last_name}} </p>
-          <p class="companyId" > {{request.user}} </p>
-          <a href="/logout" > Logout </a>
+          <p class="companyId"> {{request.user}} </p>
+          <a href="/logout"> Logout </a>
         </div>
 
       </div>
@@ -72,7 +72,10 @@
 
       </div>
 
-      <!-- <div class="functionallity">
+
+      {% if display %}
+
+      <div class="functionallity">
 
         <div class="f-item">
           <div class="figure">
@@ -116,23 +119,28 @@
           <div class="description"> Pariatur sint laborum cillum aute consectetur irure. </div>
         </div>
 
-      </div> -->
+      </div>
+      {% endif %}
 
 
+      {% if not display %}
       <div class="chat">
         <div class="user-chat">
-          <strong> User:- </strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis officia accusamus expedita veniam laudantium totam voluptatibus sequi deserunt recusandae vero eveniet inventore iste aspernatur odio ad, sunt deleniti ducimus est.
+          <strong style="color: blue;"> <i> User:- </i> </strong> {{userChat}}
         </div>
 
         <div class="machine-chat">
-          <strong> Machine:- </strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eum soluta nemo laudantium unde. Atque et accusamus, eum quisquam earum error esse nam consequuntur neque omnis nesciunt explicabo, quidem fugiat culpa aut minima perferendis nulla qui totam nisi. Aut similique mollitia quas tenetur perferendis ad, animi distinctio repudiandae voluptas quis eveniet rerum facere rem perspiciatis ipsam recusandae doloribus quo eius. Nihil ipsum consectetur iste sint perspiciatis quam modi, nesciunt similique quis iure, aperiam dolore eos aut omnis fuga reprehenderit architecto, ab corrupti doloribus repellat. Quos reiciendis tempore dicta natus autem alias illum? Voluptate qui voluptas, rerum ab aspernatur necessitatibus optio.
+          <strong style="color: green;"> Machine:- </strong> {{machineChat}}
         </div>
-      </div>
 
-      <div class="textarea-section">
-        <input type="text" class="textbox" placeholder="Example : “Summarise this Paper for me ”">
-        <button class="icon-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
-            fill="none">
+
+      </div>
+      {% endif %}
+
+      <form class="textarea-section" method="post"> {% csrf_token %}
+        <input type="text" name="userChat" class="textbox" placeholder="Example : “Summarise this Paper for me ”">
+        <button type="submit" class="icon-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            viewBox="0 0 20 20" fill="none">
             <g clip-path="url(#clip0_29_242)">
               <path
                 d="M3.16667 17.0707L17.7083 10.8374C18.3833 10.5457 18.3833 9.59573 17.7083 9.30407L3.16667 3.07073C2.61667 2.82907 2.00833 3.2374 2.00833 3.82907L2 7.67073C2 8.0874 2.30833 8.44573 2.725 8.49573L14.5 10.0707L2.725 11.6374C2.30833 11.6957 2 12.0541 2 12.4707L2.00833 16.3124C2.00833 16.9041 2.61667 17.3124 3.16667 17.0707Z"
@@ -143,8 +151,9 @@
                 <rect width="20" height="20" fill="white" />
               </clipPath>
             </defs>
-          </svg></button>
-      </div>
+          </svg>
+        </button>
+      </form>
     </div>
   </div>
 </body>
