@@ -5,16 +5,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout 
 from .forms import LoginForm
 from django.contrib import messages
-
 from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModelWithLMHead
+from .generalSummarization import llm_init
 
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).parent.parent))
+sys.path.append(str(Path(__file__).parent.parent.parent))
+from .news_summarization import summarizer
 
-
-from langchain.llms.huggingface_pipeline import HuggingFacePipeline
-import faulthandler
 
 # Create your views here.
 def Login(request):
@@ -32,29 +30,25 @@ def Login(request):
     return render(request, 'Hackathon/AuthModule/Authentication/login.html')
 
 @login_required
-def index(request):
+def newsSummarization(request):
     if request.method == 'POST':
         userChat = request.POST['userChat']
-        faulthandler.enable()
-        def model(model_id: str, task: str, model_kwargs: dict, pipeline_kwargs: dict):
-            embedding_func = HuggingFacePipeline.from_model_id(
-            model_id='mrm8488/t5-base-finetuned-summarize-news',
-            task='summarization',
-            model_kwargs=model_kwargs,
-            pipeline_kwargs=pipeline_kwargs,
-            )
-            return embedding_func
-        model_name = 'mrm8488/t5-base-finetuned-summarize-news',
-        model_kwargs = {'temperature': 0.75, 'top_k': 10, 'top_p': 0.5, 'max_length': 150, 'min_length': 10,'num_beams': 2, 'num_return_sequences': 2, 'repetition_penalty': 2.5, 'length_penalty': 1.0}
-        pipeline_kwargs = {'repetition_penalty': 2.5, 'length_penalty': 1.0}
-
-        model = model(model_name,'summarization', model_kwargs, pipeline_kwargs)
-        edited_prompt = f'Summarise this news article\n{userChat}'
-        response = model._call(prompt=edited_prompt)
+        response = summarizer(userChat)
 
 
         return render(request, 'Hackathon/DashBoard/home.html', {'display': False, 'userChat': userChat, 'machineChat': response})
 
+
+    return render(request, 'Hackathon/DashBoard/home.html',  {'display': True})
+
+@login_required
+def home(request):
+    if request.method == 'POST':
+        userChat = request.POST['userChat']
+        llm = llm_init('/Users/cardinal/testing/vicuna-13b-v1.5-16k.Q2_K.gguf')
+        machineChat = llm(userChat)
+        print("Machine chat :", machineChat)
+        return render(request, 'Hackathon/DashBoard/home.html', {'display': False, 'userChat': userChat, 'machineChat': machineChat})
 
     return render(request, 'Hackathon/DashBoard/home.html',  {'display': True})
 

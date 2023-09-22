@@ -172,7 +172,7 @@ p {
     border-radius: 30px;
     background: #444654;
     height: 85vh;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 .cc-Heading {
